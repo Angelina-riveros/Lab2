@@ -229,9 +229,12 @@ public final class ArrayBag<T> implements BagInterface<T>
 
 	public BagInterface<T> difference(BagInterface<T> anotherBag){
 		ArrayBag<T> differentItems = new ArrayBag<T>();
+		
 		for(T outputs: this.toArray()){
-			if(!anotherBag.contains(outputs)){
-				differentItems.remove(outputs);
+			if(!this.contains(outputs)){
+				if(!anotherBag.contains(outputs)){
+					differentItems.add(outputs);
+				}
 			}
 		}
 		return differentItems;
