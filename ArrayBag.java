@@ -7,7 +7,7 @@ public final class ArrayBag<T> implements BagInterface<T>
 {
 	private final T[] bag; 
 	private int numberOfEntries;
-	private boolean integrityOK = false;
+	 private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 25;
 	private static final int MAX_CAPACITY = 10000;
 
@@ -229,12 +229,10 @@ public final class ArrayBag<T> implements BagInterface<T>
 
 	public BagInterface<T> difference(BagInterface<T> anotherBag){
 		ArrayBag<T> differentItems = new ArrayBag<T>();
-		for (T outputs: this.toArray()){
-			differentItems.add(item);
-		}
-		
-		for (T outputs: anotherBag.toArray()){
-			differentItems.remove(item);
+		for(T outputs: this.toArray()){
+			if(!anotherBag.contains(outputs)){
+					differentItems.add(outputs);
+			}
 		}
 		return differentItems;
 	}
