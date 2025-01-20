@@ -227,6 +227,7 @@ public final class ArrayBag<T> implements BagInterface<T>
 		return sameItems;
 	}
 
+	@Override
 	public BagInterface<T> difference(BagInterface<T> anotherBag){
 		ArrayBag<T> differentItems = new ArrayBag<T>();
 		for(T outputs: this.toArray()){
